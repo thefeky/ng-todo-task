@@ -1,0 +1,23 @@
+<ul class="list-group">
+  <li
+    *ngFor="let todo of todos; let i = index"
+    class="list-group-item d-flex justify-content-between align-items-center py-3"
+    [ngClass]="{
+      'list-group-item-success': todo.completed,
+      'list-group-item-danger': !todo.completed
+    }"
+  >
+    <div class="d-flex align-items-center">
+      <input
+        type="checkbox"
+        class="form-check-input me-2"
+        [checked]="todo.completed"
+        (change)="onToggleCompletion(i)"
+      />
+      <span [ngClass]="{ 'text-decoration-line-through': todo.completed }">
+        {{ todo.text }}
+      </span>
+    </div>
+    <button class="btn btn-danger btn-sm" (click)="onDelete(i)">Delete</button>
+  </li>
+</ul>

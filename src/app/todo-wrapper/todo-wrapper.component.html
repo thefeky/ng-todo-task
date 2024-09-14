@@ -1,0 +1,15 @@
+<div class="container mt-4">
+  <div class="card shadow-lg">
+    <div class="card-header text-white">
+      <app-header (add)="addTodo($event)"></app-header>
+    </div>
+    <div class="card-body">
+      <note-list
+        [todos]="todos"
+        (delete)="deleteTodo($event)"
+        (toggleCompletion)="toggleCompletion($event)"
+      >
+      </note-list>
+    </div>
+  </div>
+</div>
